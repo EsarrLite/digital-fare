@@ -101,6 +101,7 @@ export default function VerifyPage() {
                   <h1 style={{
                     fontSize:'20px',
                     marginBottom:'6px',
+                    fontWeight: 'bold',
                   }}>{student.name}</h1>
                   <AutoAwesomeIcon></AutoAwesomeIcon>
                 </div>

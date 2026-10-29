@@ -36,7 +36,7 @@ export default function Home() {
           <ElasticMesh
             text="UM-1"
             material="balloon"
-            color="#a855f7"
+            color="#c78ffc"
             inflate={2}
             stiffness={0.5}
             wobble={0.6}
@@ -50,7 +50,7 @@ export default function Home() {
           <ElasticMesh
             text="Farewell"
             material="balloon"
-            color="#a855f7"
+            color="#c78ffc"
             inflate={2}
             stiffness={0.5}
             wobble={0.6}
