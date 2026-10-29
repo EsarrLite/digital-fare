@@ -9,4 +9,5 @@ export const studentsRN = [
     {rno: 8, name: "Frank Harris", package: "gold"},
     {rno: 9, name: "Grace Lee", package: "silver"},
     {rno: 10, name: "Hannah Martin", package: "silver"},
+    {rno: 11, name: "Phoane Kaung Pyae", package: "gold"}
 ]
