@@ -11,6 +11,9 @@ import SpotlightCard from "@/components/SpotLightCard";
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
+import { toPng } from "html-to-image";
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function VerifyPage() {
 
@@ -23,6 +26,27 @@ export default function VerifyPage() {
     (s) => s.rno === Number(rn)
   )
 
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  
+  const handleDownload = async () => {
+    if (!cardRef.current) return;
+
+    try {
+      const dataUrl = await toPng(cardRef.current, {
+        cacheBust: true,
+        pixelRatio: 2,
+      });
+
+      const link = document.createElement("a");
+      link.download = "student-card.png";
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error("Failed to download PNG:", error);
+    }
+  };
+
   return (
     
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -30,8 +54,6 @@ export default function VerifyPage() {
         {
           student ? (
             <div className="flex flex-col justify-center items-center">
-
-
               <GradientText
                 colors={["#5227FF", "#FF9FFC", "#B497CF"]}
                 animationSpeed={8}
@@ -57,6 +79,7 @@ export default function VerifyPage() {
               >
                 "Is Here"
               </GradientText>
+              <div ref={cardRef}>
               <SpotlightCard
                 theme="dark"
                 spotlightColor="#a855f7"
@@ -71,10 +94,10 @@ export default function VerifyPage() {
                 ambient
                 flare
                 style={{
-                  color: 'white',
+                  color:'white'
                 }}
               >
-                <div className="flex flex-row justify-between items-center gap-1">
+                <div className="flex flex-row justify-between items-center gap-2">
                   <h1 style={{
                     fontSize:'20px',
                     marginBottom:'6px',
@@ -108,7 +131,13 @@ export default function VerifyPage() {
                   </div>
                   <div className="flex-2">
                     <p className="font-bold">Location</p>
-                    <p>La Pyae Wun Plaza, Grace Center, Yangon</p>
+                    <a 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-4 hover:text-purple-200" href="https://maps.app.goo.gl/DWyqRdc5gqGZQuCc7"
+                    >
+                      La Pyae Wun Plaza, Grace Center, Yangon
+                    </a>
                   </div>
                 </div>
                 <div className="flex flex-col justify-start items-start gap-0">
@@ -135,19 +164,22 @@ export default function VerifyPage() {
                   </div>
                 </div>
               </SpotlightCard>
+              </div>
               <button 
-                onClick={() => router.push("/")} 
+                onClick={handleDownload} 
                 style={{
-                  width: '100px',
+                  fontWeight: 'bold',
+                  color: 'white',
+                  width: '200px',
                   height: '50px',
                   borderRadius: '15px',
-                  border: '2px solid black',
-                  backgroundColor: '#a855f7',
+                  border: '1px solid black',
+                  backgroundColor: 'rgba(132, 94, 194, 0.3)',
                   fontSize: '16px',
                   letterSpacing: '1px',
                   marginTop: '30px',
                 }}>
-                  Home
+                  <DownloadIcon></DownloadIcon> Download Ticket 
               </button>
             </div>
           ) : (
@@ -183,6 +215,11 @@ export default function VerifyPage() {
               >
                 "NOT Registered"
               </GradientText>
+              <h1 className="text-red-500 font-bold">U bought the ticket?</h1>
+              <h1 className="text-white" style={{
+                textAlign:'center',
+                opacity: 0.2
+              }}>Contact "09970541993" <br /> not to lose your chance!</h1>
             </div>
           )
         }
