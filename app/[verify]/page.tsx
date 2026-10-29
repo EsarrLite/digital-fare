@@ -26,7 +26,7 @@ export default function VerifyPage() {
   return (
     
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center py-32 px-15 bg-black dark:bg-black sm:items-start">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center py-32 px-5 bg-black dark:bg-black sm:items-start">
         {
           student ? (
             <div className="flex flex-col justify-center items-center">
@@ -117,7 +117,7 @@ export default function VerifyPage() {
                   </div>
                   <div className="flex-2">
                     <img style={{
-                      width: '250px',
+                      width: '400px',
                       height: '70px',
                       opacity: '1',
                       borderRadius: '20px',

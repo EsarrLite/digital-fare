@@ -30,14 +30,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center py-32 px-16 bg-black dark:bg-black sm:items-start">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center py-32 px-9 bg-black dark:bg-black sm:items-start">
         <GradientText
           colors={["#5227FF", "#FF9FFC", "#B497CF"]}
           animationSpeed={8}
           variant="linear"
           glow={0}
           style={{
-            fontSize: "1.5rem",
+            fontSize: "clamp(20px, 5vw, 35px)",
             fontWeight: "bold",
           }}
         >
@@ -55,7 +55,7 @@ export default function Home() {
           variant="linear"
           glow={0}
           style={{
-            fontSize: "2.7rem",
+            fontSize: "clamp(32px, 7.5vw, 63px)",
             fontWeight: "bold",
             marginBottom: "4rem",
           }}
@@ -68,10 +68,11 @@ export default function Home() {
           theme="dark"
           bend={28}
           height={64}
-          width={450}
+          width={400}
           onSubmit={handleSubmit}
           style={{
             marginBottom: "-150px",
+            fontSize: "clamp(32px, 7.5vw, 63px)"
           }}
         />
         {rnNo && (
