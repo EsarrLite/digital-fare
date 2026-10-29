@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center py-32 px-16 bg-white dark:bg-black sm:items-start">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-center py-32 px-16 bg-black dark:bg-black sm:items-start">
         <GradientText
           colors={["#5227FF", "#FF9FFC", "#B497CF"]}
           animationSpeed={8}
@@ -45,7 +45,8 @@ export default function Home() {
           <AutoAwesomeIcon style={{
             marginLeft: '10px',
             width: '50px',
-            height: '50px'
+            height: '50px',
+            color: 'white'
           }}></AutoAwesomeIcon>
         </GradientText>
         <GradientText
